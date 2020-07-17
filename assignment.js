@@ -85,15 +85,19 @@ console.log("Number of bricks needed for 25 floor :",brickCalculator(25));
 
  
 const tinyFriend = (names) => {
+    //find out the smallest string length
     let lengthOfTinyFriend = names[0].length;
     for(let i = 0; i < names.length; i++){
         if(names[i].length < lengthOfTinyFriend){
             lengthOfTinyFriend = names[i].length; 
         }
     }
+
+    //testing if smallest name is an empty string
     if(lengthOfTinyFriend === 0){
         return "You can't use empty string";
     }
+    //matching the minimum length with the name;
     else {
         for(let i = 0; i < names.length; i++){
             if (lengthOfTinyFriend === names[i].length){
