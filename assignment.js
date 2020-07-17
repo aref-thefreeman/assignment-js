@@ -85,32 +85,23 @@ console.log("Number of bricks needed for 25 floor :",brickCalculator(25));
 
  
 const tinyFriend = (names) => {
-    //find out the smallest string length
-    let lengthOfTinyFriend = names[0].length;
+   
+    let lengthOfTinyFriend = names[0];
     for(let i = 0; i < names.length; i++){
-        if(names[i].length < lengthOfTinyFriend){
-            lengthOfTinyFriend = names[i].length; 
+        if(names[i].length === 0){
+            return "You cant use empty string as a name";
+        }
+        else if(names[i].length < lengthOfTinyFriend.length){
+            lengthOfTinyFriend = names[i]; 
         }
     }
-
-    //testing if smallest name is an empty string
-    if(lengthOfTinyFriend === 0){
-        return "You can't use empty string";
-    }
-    //matching the minimum length with the name;
-    else {
-        for(let i = 0; i < names.length; i++){
-            if (lengthOfTinyFriend === names[i].length){
-                return names[i];
-            }
-        }
-    }
+    return lengthOfTinyFriend;
 }
 
 //testing with regular names
-let friends = ["Shakib", "Tamim", "LM10", "CR7", "Mushi"];
+let friends = ["Shakib", "Tamim", "LM10", "CR7", "RF", "Mushi"];
 console.log("Most tiny name is : ",tinyFriend(friends));
 
 //Testing with empty names in the string
-let emptyFriends = ["", "Tamim"];
+let emptyFriends = ["Tamim", ""];
 console.log("Most tiny name is(with empty string in the array) : ",tinyFriend(emptyFriends));
